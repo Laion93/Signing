@@ -4,6 +4,7 @@ import java.net.http.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 import java.net.CookieManager;
 import java.net.InetSocketAddress;
 import java.net.ProxySelector;
@@ -25,8 +26,12 @@ class Signer{
         System.out.println("starting");
         obj.start();
 
+        Thread.sleep(ThreadLocalRandom.current().nextInt(3000,8000));
+
         System.out.println("logging in");
         obj.logIn();
+
+        Thread.sleep(ThreadLocalRandom.current().nextInt(3000,8000));
 
         System.out.println("adding registry");
         obj.sign();
